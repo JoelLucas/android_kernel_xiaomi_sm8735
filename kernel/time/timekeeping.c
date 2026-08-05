@@ -818,7 +818,7 @@ void ktime_get_real_ts64(struct timespec64 *ts)
 	unsigned int seq;
 	u64 nsecs;
 
-	WARN_ON(timekeeping_suspended);
+	WARN_ON_ONCE(timekeeping_suspended);
 
 	do {
 		seq = read_seqcount_begin(&tk_core.seq);
